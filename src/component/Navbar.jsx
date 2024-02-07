@@ -1,10 +1,124 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import "../css/navbar.css"
+import logo from "../assets/WrapCart_R.png"
+import { Menu, Input, Button, Row, Col } from 'antd';
+import { SearchOutlined, MenuOutlined } from '@ant-design/icons';
+import Link from 'antd/es/typography/Link';
+import { HeartOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+
 
 const Navbar = () => {
+
+    const [showMenuIcon, setShowMenuIcon] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY;
+            setShowMenuIcon(scrollPosition >= 1025);
+        };
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
-        <div>
-            <h1>i am navbar</h1>
-        </div>
+        <>
+            <div className="navbar-section">
+                <div className="navbar-container">
+
+                    <div className='responsive-navbar'>
+
+                        <div className='menu-icon'>
+                            <MenuOutlined style={{ fontSize: "25px", color: '#fff' }} />
+                        </div>
+
+
+                        {/* <div className="responsive-logo">
+                            <img src={logo} alt="logo" />
+                        </div> */}
+                    </div>
+
+                    <div className="navbar-box">
+                        <Row gutter={{ xs: 24, sm: 6, md: 12, lg: 32 }}>
+                            <Col md={12}>
+                                <div className='col-left'>
+
+                                    <div className="logo">
+                                        <img src={logo} alt="logo" />
+                                    </div>
+
+
+
+
+
+                                    <div className="navbar-items">
+                                        <Menu mode="horizontal">
+                                            <Menu.Item>
+                                                <Link href='#'>
+                                                    Home
+                                                </Link>
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                <Link href='#'>
+                                                    Designs
+                                                </Link>
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                <Link href='#'>
+                                                    About
+                                                </Link>
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                <Link href='#'>
+                                                    Contact Us
+                                                </Link>
+                                            </Menu.Item>
+                                        </Menu>
+                                    </div>
+                                </div>
+
+                            </Col>
+                            <Col md={12}>
+                                <div className='col-right'>
+                                    <div className='search-bar'>
+                                        <Input
+                                            style={{ borderRadius: "20px", border: "1px solid #1e81b0" }}
+                                            placeholder="Search"
+                                            prefix={<SearchOutlined style={{}} />}
+                                            className="search-input"
+                                        />
+                                    </div>
+
+                                    <div className='wishlist'>
+                                        <HeartOutlined style={{ fontSize: '24px' }} />
+                                    </div>
+                                    <div className='cart'>
+                                        <ShoppingCartOutlined style={{ fontSize: '24px' }} />
+                                    </div>
+                                    <div className="auth-buttons">
+                                        <Button className="login-button">
+                                            Login
+                                        </Button>
+                                        <Button className="signup-button">
+                                            Sign Up
+                                        </Button>
+                                    </div>
+                                </div>
+
+                            </Col>
+                        </Row>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </>
+
     )
 }
 
