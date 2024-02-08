@@ -1,0 +1,53 @@
+[
+    [
+        {
+            "id": 1,
+            "img": "/static/screen1.webp",
+            "name": "Glossy"
+        },
+        {
+            "id": 2,
+            "img": "/static/screen2.webp",
+            "name": "Unblast"
+        },
+        {
+            "id": 3,
+            "img": "/static/screen3.webp",
+            "name": "Fabric"
+        }
+    ],
+    [
+        {
+            "id": 1,
+            "img": "/static/screen4.jpg",
+            "name": "Glossy"
+        },
+        {
+            "id": 2,
+            "img": "/static/screen5.jpg",
+            "name": "Unblast"
+        },
+        {
+            "id": 3,
+            "img": "/static/screen6.jpg",
+            "name": "Fabric"
+        }
+    ],
+    [
+        {
+            "id": 1,
+            "img": "/static/screen7.jpg",
+            "name": "Glossy"
+        },
+        {
+            "id": 2,
+            "img": "/static/screen8.webp",
+            "name": "Unblast"
+        },
+        {
+            "id": 3,
+            "img": "/static/screen9.jpg",
+            "name": "Fabric"
+        }
+    ]
+]

@@ -34,25 +34,27 @@ const Navbar = () => {
                             <MenuOutlined style={{ fontSize: "25px", color: '#fff' }} />
                         </div>
 
-
-                        {/* <div className="responsive-logo">
+                        <div className="responsive-logo">
                             <img src={logo} alt="logo" />
-                        </div> */}
+                        </div>
+
+                        <div className='search-bar' style={{ display: "flex", justifyContent: "center" }}>
+                            <Input
+                                style={{ borderRadius: "20px", border: "1px solid #1e81b0" }}
+                                placeholder="Search"
+                                prefix={<SearchOutlined style={{}} />}
+                                className="search-input"
+                            />
+                        </div>
                     </div>
 
                     <div className="navbar-box">
                         <Row gutter={{ xs: 24, sm: 6, md: 12, lg: 32 }}>
                             <Col md={12}>
                                 <div className='col-left'>
-
                                     <div className="logo">
                                         <img src={logo} alt="logo" />
                                     </div>
-
-
-
-
-
                                     <div className="navbar-items">
                                         <Menu mode="horizontal">
                                             <Menu.Item>
@@ -80,7 +82,7 @@ const Navbar = () => {
                                 </div>
 
                             </Col>
-                            <Col md={12}>
+                            <Col md={12} style={{ display:"flex",justifyContent:"center",alignItems:"center" }}>
                                 <div className='col-right'>
                                     <div className='search-bar'>
                                         <Input
@@ -90,7 +92,6 @@ const Navbar = () => {
                                             className="search-input"
                                         />
                                     </div>
-
                                     <div className='wishlist'>
                                         <HeartOutlined style={{ fontSize: '24px' }} />
                                     </div>
