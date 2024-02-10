@@ -1,20 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import "../css/card.css"
-import { Avatar, Card, Col, Flex, Row } from 'antd';
-import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
-import Link from 'antd/es/typography/Link';
-import screen1 from "../assets/screen1.webp"
+import { Card, Col, Row } from 'antd';
 import { HeartOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import cardDetails from "../data/carddata.json"
 
-const { Meta } = Card;
-const CardComponent = () => {
+const CardComponent = ({ data }) => {
+
+    
     return (
         <>
             <div className="card-section">
                 <div className="card-container">
                     <div className="top-heading">
-                        <h2>Top Laptop Screens</h2>
+                        <h2>Top Laptop Skins</h2>
                     </div>
                     <div className='card-box'>
                         {
