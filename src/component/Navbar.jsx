@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "../css/navbar.css"
 import logo from "../assets/WrapCart_R.png"
-import { Menu, Input, Button, Row, Col } from 'antd';
+import { Input, Button, Row, Col, Popover, Menu } from 'antd';
 import { SearchOutlined, MenuOutlined } from '@ant-design/icons';
 import Link from 'antd/es/typography/Link';
 import { HeartOutlined, ShoppingCartOutlined } from '@ant-design/icons';
@@ -10,6 +10,8 @@ import { HeartOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 const Navbar = () => {
 
     const [showMenuIcon, setShowMenuIcon] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isPopoverVisible, setIsPopoverVisible] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -23,6 +25,38 @@ const Navbar = () => {
         };
     }, []);
 
+
+    const handleMenuClick = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
+
+
+    const content = (
+        <Menu mode="vertical" style={{width:"300px",border:"none",textAlign:"center"}}>
+            <Menu.Item>
+                <Link href='#'>
+                    Home
+                </Link>
+            </Menu.Item>
+            <Menu.Item>
+                <Link href='#'>
+                    Designs
+                </Link>
+            </Menu.Item>
+            <Menu.Item>
+                <Link href='#'>
+                    About
+                </Link>
+            </Menu.Item>
+            <Menu.Item>
+                <Link href='#'>
+                    Contact Us
+                </Link>
+            </Menu.Item>
+        </Menu>
+    );
+
     return (
         <>
             <div className="navbar-section">
@@ -30,9 +64,18 @@ const Navbar = () => {
 
                     <div className='responsive-navbar'>
 
-                        <div className='menu-icon'>
-                            <MenuOutlined style={{ fontSize: "25px", color: '#fff' }} />
-                        </div>
+                        <Popover
+                            content={content}
+                            title={null}
+                            trigger="click"
+                            visible={isPopoverVisible}
+                            onVisibleChange={(visible) => setIsPopoverVisible(visible)}
+                            
+                        >
+                            <div className='menu-icon'>
+                                <MenuOutlined style={{ fontSize: "25px", color: '#fff' }} />
+                            </div>
+                        </Popover>
 
                         <div className="responsive-logo">
                             <img src={logo} alt="logo" />
@@ -48,7 +91,7 @@ const Navbar = () => {
                         </div>
                     </div>
 
-                    <div className="navbar-box">
+                    <div className={`navbar-box ${isMenuOpen ? 'menu-open' : ''}`}>
                         <Row gutter={{ xs: 24, sm: 6, md: 12, lg: 32 }}>
                             <Col md={12}>
                                 <div className='col-left'>
@@ -82,7 +125,7 @@ const Navbar = () => {
                                 </div>
 
                             </Col>
-                            <Col md={12} style={{ display:"flex",justifyContent:"center",alignItems:"center" }}>
+                            <Col md={12} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                                 <div className='col-right'>
                                     <div className='search-bar'>
                                         <Input

@@ -1,8 +1,9 @@
 import './App.css';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Navbar from './component/Navbar';
 import CardComponent from './component/card';
 import Carousel from './component/Carousel';
+import Footer from './component/footer';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <Navbar />
       <CardComponent />
       <Carousel />
+      <Footer/>
     </div>
 
   );

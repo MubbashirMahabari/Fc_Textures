@@ -5,24 +5,35 @@
     margin: 0;
     padding: 0;
 }
-.mobile-screens{
+
+.mobile-screens {
     text-align: center;
     font-family: "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 32px;
 }
 
-.carousel{
+@media(max-width:600px) {
+    .mobile-screens h2{
+        text-align: center;
+        font-family: "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 30px;
+    }
+}
+
+.carousel {
     margin-top: 30px;
 }
 
-.carousel img{
+
+.carousel img {
     border-radius: 10px;
-  
+
 }
 
-.carousel-img{
+.carousel-img {
     transition: box-shadow 0.3s ease-in-out;
 }
+
 .carousel-img:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 1);
 }
